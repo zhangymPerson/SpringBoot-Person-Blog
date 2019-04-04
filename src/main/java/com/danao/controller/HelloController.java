@@ -18,6 +18,6 @@ public class HelloController {
 
 	@RequestMapping(value = "/test")
 	public String test(){
-		return "success 萨达阿瑟东sad; ";
+		return "success 萨达阿瑟东sad;喀什地方艰苦；阿斯达克 ";
 	}
 }

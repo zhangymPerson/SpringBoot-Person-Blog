@@ -7,17 +7,21 @@
     <groupId>com.danao</groupId>
     <artifactId>personblog</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <mybaties.version>1.3.3</mybaties.version>
+        <druid.version>1.1.8</druid.version>
+        <druid.springbootstart.version>1.1.14</druid.springbootstart.version>
+        <mysql-version>8.0.14</mysql-version>
     </properties>
-
 
     <!--springbot 基础依赖 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.2.RELEASE</version>
+        <version>2.1.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -38,10 +42,12 @@
         </dependency>
 
         <!-- springboot工具 修改代码后不需重启即生效 -->
+        <!-- 这个在springboot 2.0版本中报错，未知的jar 包
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>springloaded</artifactId>
         </dependency>
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -49,7 +55,34 @@
             <optional>true</optional>
         </dependency>
 
+        <!--mybaties包-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybaties.version}</version>
+        </dependency>
 
+        <!--druid 数据库链接池 -->
+        <!--
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        -->
+        <!--使用 durid-start启动jar包 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.springbootstart.version}</version>
+        </dependency>
+
+        <!--mysql连接工具类-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-version}</version>
+        </dependency>
     </dependencies>
 
 
