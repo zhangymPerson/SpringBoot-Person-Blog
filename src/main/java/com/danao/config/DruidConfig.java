@@ -29,9 +29,9 @@ public class DruidConfig {
 
 		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
 		// IP白名单
-		servletRegistrationBean.addInitParameter("allow", "192.168.2.25,127.0.0.1");
+		//servletRegistrationBean.addInitParameter("allow", "192.168.2.25,127.0.0.1");
 		// IP黑名单(共同存在时，deny优先于allow)
-		servletRegistrationBean.addInitParameter("deny", "192.168.1.100");
+		//servletRegistrationBean.addInitParameter("deny", "192.168.1.100");
 		//控制台管理用户
 		servletRegistrationBean.addInitParameter("loginUsername", "admin");
 		servletRegistrationBean.addInitParameter("loginPassword", "admin");
@@ -48,9 +48,10 @@ public class DruidConfig {
 		return filterRegistrationBean;
 	}
 
-	@Bean     //声明其为Bean实例
+	//@Bean     //声明其为Bean实例
 	@Primary  //在同样的DataSource中，首先使用被标注的DataSource
 	@ConfigurationProperties(prefix = "spring.datasource")
+	@Bean(destroyMethod = "close", initMethod = "init")
 	public DataSource datasource(){
 		return DataSourceBuilder.create().type(com.alibaba.druid.pool.DruidDataSource.class).build();
 	}

@@ -1,5 +1,6 @@
 package com.danao;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 1.0
  */
 @SpringBootApplication
+@MapperScan("com.danao.dao")
 public class PersonBlogApplication {
 	public static void main(String[] args) {
 		//启动类
