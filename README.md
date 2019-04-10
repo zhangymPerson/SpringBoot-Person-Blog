@@ -37,4 +37,26 @@ Person-Blog
     
     默认密码:查看启动日志
     
+- springboot 整合redis
+
+    添加maven包 然后编写config文件 注意：序列化方式不同
+    
+- springboot 整合日志
+
+    - 方式一 创建logger
+    ```java
+    private Logger logger = LoggerFactory.getLogger(当前类名.class);
+    ```
+    - 方式二
+    
+    使用注解@Slf4j
+    
+    需要添加jar包
+    ```xml
+    <!--使用日志注解-->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+    </dependency>
+    ```
    
